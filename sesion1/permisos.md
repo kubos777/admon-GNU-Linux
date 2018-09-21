@@ -7,9 +7,38 @@
 
 ### Configuración de proyecto laravel 5.0.16
 
+- Asignar permisos(DAC con el comando *chmod*) a **/var/www/html/proyecto**
+- Cambiar permisos para el storage: **$sudo chmod -R 775 proyecto/storage **
 - Crear la base de datos en mysql
 - Cambiar la configuración de **.env** ubicado en **/var/www/html/proyecto**
-- Cambiar los permisos de administración **$chown -R admin:apache /var/www/html/proyecto**
-- Configurar **/etc/httpd/conf/httpd.conf** y permitir el **AllowOverride  All**
+	- Nos ayudará a configurar la base de datos, correo etc.
+- Para aplicar las migraciones de los modelos a esa base de datos:
+	- Utilizando artisan: **$php artisan migrate**
+- Cambiar los permisos de administración **$sudo chown -R admin:apache /var/www/html/proyecto**
+- Configurar **/etc/httpd/conf/httpd.conf** y permitir el **AllowOverride  All** para permitir las *pretty urls*
 - Reiniciar el servicio **$sudo systemctl restart httpd**
-- Desactivar o cambiar los permisos SELinux **$sudo setenforce 0**
+- Desactivar o cambiar los permisos SELinux:
+	- Para desactivar **$sudo setenforce 0**
+	- Para cambiar configurar y los permisos(MAC)
+		- **$sudo semanage fcontext -a -t httpd_sys_content_t /var/www/html/proyecto**
+		- **$sudo restorecon -RvF**
+		- **$sudo semanage fcontext -a -t httpd_sys_rw_content_t "/var/www/html/proyecto/(/.*)"**
+		- **$sudo restorecon -RvF /var/www/html/proyecto**  
+-  Finalmente reiniciamos el servicio:
+	- **$sudo systemctl restart httpd **
+
+# Open Source & Software libre
+
+## Open Source
+
+El **Open Source** o código abierto, es una expresión con la cual se le conoce desarrollo libre y distribución de software.
+Se enfoca más en los beneficios de acceso al código que en aspectos éticos o las libertades relevantes como es caso del **Sotware libre**. Lo ideal es compartir el código pero el *open source* no obliga a compartir el código.
+
+## Software libre
+
+El **Software libre o Free Software** es aquel software que respeta las cuatro libertades que la *Free Software Foundation(FSF)* establece:
+
+-   La libertad de usar el programa, con cualquier propósito.
+-   La libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
+-   La libertad de distribuir copias del programa, con lo cual puedes ayudar a tu prójimo.
+-   La libertad de mejorar el programa y hacer públicas esas mejoras a los demás, de modo que toda la comunidad se beneficie.
