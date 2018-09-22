@@ -47,3 +47,19 @@ Reiniciamos el *firewall*:
  - **$sudo firewall-cmd  --reload**
 
 Y comprobamos de nuevo.
+
+
+
+# Instalación de paquetes
+
+ 1. A través de código fuente
+	 - Conseguir el código fuente
+		 - En este caso **linux-2.6.15.tar.gz**
+	 - Desempaquetar el código fuente con:
+		 - **$ tar xvzf linux-2.6.15.tar.gz**
+	 - Configurar el kernel con herramientas, por ejemplo make:
+		 - **$ make menuconfig**
+	 - Compilar el código fuente:
+		 - **$ make-kpkg clean && make-kpkg --initrd kernel_imagekernel_headers**
+ 2. Vía RPM(Package Manager)
+	 3. 
