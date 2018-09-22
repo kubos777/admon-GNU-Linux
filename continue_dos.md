@@ -81,6 +81,7 @@
 
 
   # Configurar SQUID con DANSGUARDIAN
+  ![Esquema](https://github.com/kubos777/admon-GNU-Linux/blob/master/caps/squiddans.png)
 
   1. Primero actualizaremos los repositorios:
   	- **$ sudo yum update -y**
@@ -92,4 +93,3 @@
   		- **$ acl localhost src 127.0.0.1/32**
   		- **$ acl localnet src IP-TU-HOST/24 **
   - Continuará...
-  - 
