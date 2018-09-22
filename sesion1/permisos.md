@@ -27,6 +27,25 @@
 -  Finalmente reiniciamos el servicio:
 	- **$sudo systemctl restart httpd **
 
+
+### Configurar envío de correos
+
+ 1. En el archivo *.env* configurar las siguientes variables:
+	MAIL_DRIVER=smtp
+	MAIL_HOST=smtp.gmail.com
+	MAIL_PORT=587
+	MAIL_USERNAME= *correoelectrónicodegmail*
+	MAIL_PASSWORD=*passworddelcorreodegmail*
+ 2. En el archivo *mail.php* ubicado en **/var/www/html/proyecto/config/** configurar **addres** y **name** ya que esta como *null*, además de colocar también el MAIL_HOST.
+ 3. En cuanto a Gmail, hay que acceder y permitir el acceso a [aplicaciones menos seguras](https://myaccount.google.com/lesssecureapps)
+ 4. Finalmente debemos cambiar los contextos:
+	 - Para permitir conexiones a redes mediante sockets:
+		 - **$sudo setsebool -P httpd_can_network_connect on**
+	- Para permitir la salida de correos electrónicos:
+		- **$sudo setsebool -P httpd_can_sendmail on**
+
+
+
 # Open Source & Software libre
 
 ## Open Source
