@@ -77,3 +77,19 @@
 	echo "Hola mundo";
 	echo phpinfo();
 	?>
+
+
+
+  # Configurar SQUID con DANSGUARDIAN
+
+  1. Primero actualizaremos los repositorios:
+  	- **$ sudo yum update -y**
+  2. Instalando *Squid*
+  	- **$ sudo yum install squid**
+  	- Para verificar la versión de *Squid* que instalamos **$ squid -v**
+  3. Configurando el archivo */etc/squid/squid.conf*:
+  	- Hay que agregar dos listas de control de acceso(ACL[Acces Control List]):
+  		- **$ acl localhost src 127.0.0.1/32**
+  		- **$ acl localnet src IP-TU-HOST/24 **
+  - Continuará...
+  - 
