@@ -2,9 +2,6 @@
 ## Módulo GNU/Linux
 
 
-### SELinux
-
-
 ### Configuración de proyecto laravel 5.0.16
 
 - Asignar permisos(DAC con el comando *chmod*) a **/var/www/html/proyecto**
@@ -43,21 +40,3 @@
 		 - **$sudo setsebool -P httpd_can_network_connect on**
 	- Para permitir la salida de correos electrónicos:
 		- **$sudo setsebool -P httpd_can_sendmail on**
-
-
-
-# Open Source & Software libre
-
-## Open Source
-
-El **Open Source** o código abierto, es una expresión con la cual se le conoce desarrollo libre y distribución de software.
-Se enfoca más en los beneficios de acceso al código que en aspectos éticos o las libertades relevantes como es caso del **Sotware libre**. Lo ideal es compartir el código pero el *open source* no obliga a compartir el código.
-
-## Software libre
-
-El **Software libre o Free Software** es aquel software que respeta las cuatro libertades que la *Free Software Foundation(FSF)* establece:
-
--   La libertad de usar el programa, con cualquier propósito.
--   La libertad de estudiar cómo funciona el programa y modificarlo, adaptándolo a tus necesidades.
--   La libertad de distribuir copias del programa, con lo cual puedes ayudar a tu prójimo.
--   La libertad de mejorar el programa y hacer públicas esas mejoras a los demás, de modo que toda la comunidad se beneficie.
